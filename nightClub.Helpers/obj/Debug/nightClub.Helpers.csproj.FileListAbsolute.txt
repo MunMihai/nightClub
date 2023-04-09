@@ -4,3 +4,9 @@ E:\Semestru4\Project\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.csp
 E:\Semestru4\Project\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CoreCompileInputs.cache
 E:\Semestru4\Project\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.dll
 E:\Semestru4\Project\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.pdb
+E:\Semestru4\Project\nightClub.Helpers\bin\Debug\nightClub.Helpers.dll
+E:\Semestru4\Project\nightClub.Helpers\bin\Debug\nightClub.Helpers.pdb
+E:\Semestru4\Project\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.AssemblyReference.cache
+E:\Semestru4\Project\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CoreCompileInputs.cache
+E:\Semestru4\Project\nightClub.Helpers\obj\Debug\nightClub.Helpers.dll
+E:\Semestru4\Project\nightClub.Helpers\obj\Debug\nightClub.Helpers.pdb

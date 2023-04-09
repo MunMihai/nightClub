@@ -10,8 +10,9 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: "Open Sans", sans-serif;
-    color: #444444;
+    background: #151515;
+    font-family: 'Roboto', sans-serif;
+    color: #949ba2;
 }
 
 a {
