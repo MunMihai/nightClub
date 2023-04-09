@@ -13,31 +13,31 @@
                     <h2>Staff List</h2>
                 </div>
 
-                <p><a href="/Staff/Create">Add New Staff Member</a></p>
+                <p><a href="#">Add New Staff Member</a></p>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Picture</th>
                         <th>Name</th>
                         <th>Role</th>
-                        <th>Shift</th>
+                        <th>PayRate</th>
                         <th>Contact Info</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach (var staff in Model)
                     {
                         <tr>
-                            <td>@staff.FirstName</td>
-                            <td>@staff.LastName</td>
+                            <td><img src=@staff.ImageUrl alt="Profile Image" width="50" height="50"/></td>
+                            <td>@staff.FirstName @staff.LastName</td>
                             <td>@staff.Role</td>
                             <td>@staff.PayRate</td>
                             <td>@staff.ContactInfo</td>
                             <td>
-                                <a href="/Staff/Edit/#">Edit</a> |
-                                <a href="/Staff/Details/#">Details</a> |
-                                <a href="/Staff/Delete/#">Delete</a>
+                                <a href="#edit">Edit</a> |
+                                <a href="#details">Details</a> |
+                                <a href="#delete">Delete</a>
                             </td>
                         </tr>
                     }

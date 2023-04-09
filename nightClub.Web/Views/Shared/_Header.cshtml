@@ -10,7 +10,7 @@
             <li><a class="nav-link @(ViewBag.Title == "About" ? "active" : "")" href="@Url.Action("Index", "About")">About</a></li>
             <li><a class="nav-link @(ViewBag.Title == "Services" ? "active" : "")" href="#services">Services</a></li>
             <li><a class="nav-link @(ViewBag.Title == "Gallery" ? "active" : "")" href="#portfolio">Gallery</a></li>
-            <li><a class="nav-link @(ViewBag.Title == "Staff" ? "active" : "")" href="#team">Staff</a></li>
+            <li><a class="nav-link @(ViewBag.Title == "Staff" ? "active" : "")" href=@Url.Action("Index", "Staff")>Staff</a></li>
             <li class="dropdown">
                 <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>

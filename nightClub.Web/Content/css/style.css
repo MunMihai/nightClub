@@ -37,8 +37,13 @@ h6 {
 /*--------------------------------------------------------------
 # Background
 --------------------------------------------------------------*/
-.mainBg {
-    background: silver;
+table td,table th {
+    color: #eeeeee;
+    vertical-align: middle;
+}
+table td.no-border, table th.no-border {
+    border: none;
+    border-bottom: none;
 }
 
 /*--------------------------------------------------------------

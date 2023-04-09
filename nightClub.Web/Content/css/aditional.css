@@ -2648,6 +2648,9 @@ h6 .small,
 .table > tfoot > tr > td {
     border-top: 1px solid #3d404c;
 }
+.no-border {
+    border: none;
+}
 
 .table > thead > tr > th {
     border-bottom: none;

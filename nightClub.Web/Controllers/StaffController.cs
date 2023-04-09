@@ -14,7 +14,7 @@ namespace nightClub.Web.Controllers
         // GET: Staff
         public StaffController()
         {
-            _staffList.Add(new Staff { FirstName = "Ion", LastName = "Muntean", Role = SRole.Bartender, PayRate = 100, ContactInfo = "ionmun@gmail.com" });
+            _staffList.Add(new Staff {ImageUrl= "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", FirstName = "Ion", LastName = "Muntean", Role = SRole.Bartender, PayRate = 100, ContactInfo = "ionmun@gmail.com" });
             _staffList.Add(new Staff { FirstName = "Mihai", LastName = "Muntean", Role = SRole.Waiter, PayRate = 200, ContactInfo = "mihmun@gmail.com" });
 
         }
