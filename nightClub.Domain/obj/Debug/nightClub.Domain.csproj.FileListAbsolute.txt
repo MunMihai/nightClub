@@ -7,3 +7,12 @@ E:\Semestru4\Project\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.cspro
 E:\Semestru4\Project\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
 E:\Semestru4\Project\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.dll
 E:\Semestru4\Project\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.pdb
+C:\UTM_sem_lV\Project\nightClub.Domain\bin\Debug\nightClub.Domain.dll
+C:\UTM_sem_lV\Project\nightClub.Domain\bin\Debug\nightClub.Domain.pdb
+C:\UTM_sem_lV\Project\nightClub.Domain\bin\Debug\nightClub.Helpers.dll
+C:\UTM_sem_lV\Project\nightClub.Domain\bin\Debug\nightClub.Helpers.pdb
+C:\UTM_sem_lV\Project\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.AssemblyReference.cache
+C:\UTM_sem_lV\Project\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInputs.cache
+C:\UTM_sem_lV\Project\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
+C:\UTM_sem_lV\Project\nightClub.Domain\obj\Debug\nightClub.Domain.dll
+C:\UTM_sem_lV\Project\nightClub.Domain\obj\Debug\nightClub.Domain.pdb
