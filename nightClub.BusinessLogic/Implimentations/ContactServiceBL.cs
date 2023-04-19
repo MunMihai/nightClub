@@ -20,7 +20,7 @@ namespace nightClub.BusinessLogic.Implimentations
 
         public List<ReviewModel> GetReviews()
         {
-            throw new NotImplementedException();
+            return GetReviewList();
         }
     }
 }

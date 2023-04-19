@@ -12,6 +12,7 @@ using System.Linq;
 using System.Web;
 using nightClub.Domain.Entities.Contact;
 using nightClub.Domain.Enums;
+using System.Collections.Generic;
 
 namespace nightClub.BusinessLogic.Core
 {
@@ -115,6 +116,21 @@ namespace nightClub.BusinessLogic.Core
             {
                 db.Reviews.Add(result);
                 db.SaveChanges();
+            }
+        }
+        internal List<ReviewModel> GetReviewList()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<RDbTable, ReviewModel>();
+            });
+            IMapper mapper = config.CreateMapper();
+
+            using (var db = new ReviewContext())
+            {
+                var result = db.Reviews.ToList();
+                var reviewData = mapper.Map<List<ReviewModel>>(result);
+                return reviewData;
             }
         }
         //internal HttpCookie Cookie(string loginCredential)

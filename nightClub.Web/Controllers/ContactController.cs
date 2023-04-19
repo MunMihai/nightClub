@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Mvc;
 using AutoMapper;
 using nightClub.BusinessLogic.Core;
+using nightClub.BusinessLogic.DBModel;
 using nightClub.BusinessLogic.Interfaces;
 using nightClub.Domain.Entities.Contact;
 using nightClub.Web.Models;
@@ -46,6 +50,18 @@ namespace nightClub.Web.Controllers
         public ActionResult ThankYou()
         {
             return View();
+        }
+
+        public ActionResult Reviews()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ReviewModel, Review>();
+            });
+            IMapper mapper = config.CreateMapper();
+
+            var reviews = mapper.Map<List<Review>>(_contactBL.GetReviews());
+            return View(reviews);
         }
     }
 }
