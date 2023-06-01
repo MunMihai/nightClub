@@ -10,8 +10,6 @@ using nightClub.Domain.Entities.Event;
 using nightClub.Web.Filters;
 using System.Net.Sockets;
 using nightClub.Domain.Entities.Ticket;
-using nightClub.Domain.Entities.Contact;
-using nightClub.Helpers;
 
 namespace nightClub.Web.Controllers
 {
@@ -31,7 +29,8 @@ namespace nightClub.Web.Controllers
         public ActionResult Index()
         {
             SessionStatus();
-            IMapper mapper =MappingHelper.Configure<EventModel, Event>();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, Event>());
+            IMapper mapper = config.CreateMapper();
 
             var eventsList = mapper.Map<List<Event>>(_eventBl.GetAll());
             return View(eventsList);
@@ -52,7 +51,8 @@ namespace nightClub.Web.Controllers
             SessionStatus();
             if (ModelState.IsValid)
             {
-                IMapper mapper = MappingHelper.Configure<Event, EventModel>();
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<Event, EventModel>());
+                IMapper mapper = config.CreateMapper();
 
                 var eventAdded = _eventBl.Add(mapper.Map<EventModel>(newEvent));
                 if (eventAdded.Status)
@@ -95,7 +95,8 @@ namespace nightClub.Web.Controllers
             var evDetails = _eventBl.GetById(id);
             if (evDetails != null)
             {
-                IMapper mapper = MappingHelper.Configure<EventModel, Event>();
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, Event>());
+                IMapper mapper = config.CreateMapper();
                 var data = mapper.Map<Event>(evDetails);
                 return View(data);
             }
@@ -111,7 +112,8 @@ namespace nightClub.Web.Controllers
             var evDetails = _eventBl.GetById(id);
             if (evDetails != null)
             {
-                IMapper mapper = MappingHelper.Configure<EventModel, Event>();
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, Event>());
+                IMapper mapper = config.CreateMapper();
                 var data = mapper.Map<Event>(evDetails);
                 return View(data);
             }
@@ -126,7 +128,8 @@ namespace nightClub.Web.Controllers
             SessionStatus();
             if (ModelState.IsValid)
             {
-                IMapper mapper = MappingHelper.Configure<Event, EventModel>();
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<Event, EventModel>());
+                IMapper mapper = config.CreateMapper();
 
                 var eventAdded = _eventBl.Update(mapper.Map<EventModel>(newEvent));
                 if (eventAdded.Status)
@@ -161,10 +164,13 @@ namespace nightClub.Web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, EDbTable>());
+            IMapper mapper = config.CreateMapper();
+
             var evDetails = _eventBl.GetById(id);
+            ViewBag.Event = evDetails;
             if (evDetails != null)
             {
-                ViewBag.Event = evDetails;
                 var ticket = new Ticket
                 {
                     UserId = ViewBag.CurrentUser.Id,
@@ -191,18 +197,22 @@ namespace nightClub.Web.Controllers
             {
                 if (eventDetail == null) return View("NotFound");
 
-                IMapper mapper = MappingHelper.Configure<Ticket, TicketModel>();
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketModel>());
+                IMapper mapper = config.CreateMapper();
                 var ticketModel = mapper.Map<TicketModel>(ticket);
 
                 var bookingResult = _tBookingBl.Book(ticket.EventId, ticketModel);
 
                 if (bookingResult.Status)
                 {
+                    TempData["successMsg"] = bookingResult.StatusMsg;
                     return RedirectToAction("Index");
                 }
-
-                ModelState.AddModelError("", bookingResult.StatusMsg);
-                return View(ticket);
+                else
+                {
+                    ModelState.AddModelError("", bookingResult.StatusMsg);
+                    return View(ticket);
+                }
             }
             return View(ticket);
         }

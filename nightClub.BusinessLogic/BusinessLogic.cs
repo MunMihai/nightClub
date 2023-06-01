@@ -37,5 +37,9 @@ namespace nightClub.BusinessLogic
         {
             return new TicketBookingBL();
         }
+        public IBar GetBarBL()
+        {
+            return new BarBL();
+        }
     }
 }

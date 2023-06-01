@@ -34,7 +34,7 @@
                 {
                     <tr>
                         <td>
-                            <a href="@Url.Action("EventDetail", "Event", new {id = booking.EventId})">#@booking.FullName</a>
+                            <a href="@Url.Action("EventDetail", "Event", new {id = booking.EventId})">#@booking.EventId</a>
                         </td>
                         <td>@booking.Quantity</td>
                         <td>@booking.TotalPrice.ToString("C")</td>

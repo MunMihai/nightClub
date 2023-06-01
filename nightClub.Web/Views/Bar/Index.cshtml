@@ -1,0 +1,61 @@
+﻿@using nightClub.Web.Models
+@{
+    ViewBag.Title = "Bar";
+}
+
+<section id="portfolio" class="portfolio">
+    <div class="container " data-aos="fade-up">
+        <div class="section-title">
+            <h2>Bar</h2>
+        </div>
+        <a href=@Url.Action("Create", "Bar")>Add a new Product</a>
+
+        <div class="row portfolio-container mt-3" data-aos="fade-up" data-aos-delay="200">
+            @foreach (var photo in Model)
+            {
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="portfolio-wrap">
+                        <img src=@photo.Url class="img-fluid portfolio-image" alt="">
+                        <div class="portfolio-info">
+                            <h4>@photo.Title</h4>
+                            <p>@photo.Date</p>
+                            <div class="portfolio-links">
+                                <a href=@photo.Url data-gallery="portfolioGallery" class="portfolio-lightbox" title="@photo.Title - @photo.Description"><i class="bx bx-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    @if (true) // modificare pentru rol
+                    {
+
+                        <td class="align-middle text-center">
+                            <div class="portfolio-buttons">
+                                <a href="@Url.Action("Edit", "Bar", new { id = photo.Id })" class="btn btn-outline-secondary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+
+                                <a href="@Url.Action("Details", "Bar", new { id = photo.Id })" class="btn btn-outline-primary" style="background-color: transparent;">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+
+                                <a href="@Url.Action("Delete", "Bar", new { id = photo.Id })" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this photo?');">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    }
+                </div>
+            }
+        </div>
+        <style>
+            .portfolio-image {
+                height: 400px; /* setează înălțimea imaginii */
+                width: 300px; /* setează lățimea maximă a imaginii */
+                object-fit: cover; /* setează modul de afișare a imaginii */
+            }
+
+            .portfolio-buttons {
+                margin-top: 10px; /* adaugă un spațiu între imaginile din portofoliu și butoanele aferente */
+            }
+        </style>
+    </div>
+</section>

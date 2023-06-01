@@ -59,6 +59,7 @@
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\ContentApi.cs" />
     <Compile Include="Core\UserApi.cs" />
+    <Compile Include="DBModel\BarContext.cs" />
     <Compile Include="DBModel\EventContext.cs" />
     <Compile Include="DBModel\GalleryContext.cs" />
     <Compile Include="DBModel\ReviewContext.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="DBModel\SessionContext.cs" />
     <Compile Include="DBModel\StaffContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
+    <Compile Include="Implimentations\BarBL.cs" />
     <Compile Include="Implimentations\ContactServiceBL.cs" />
     <Compile Include="Implimentations\EventBL.cs" />
     <Compile Include="Implimentations\GalleryBL.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Implimentations\StaffBL.cs" />
     <Compile Include="Implimentations\TicketBookingBL.cs" />
     <Compile Include="Implimentations\UserBL.cs" />
+    <Compile Include="Interfaces\IBar.cs" />
     <Compile Include="Interfaces\IContactService.cs" />
     <Compile Include="Interfaces\IEvent.cs" />
     <Compile Include="Interfaces\IGallery.cs" />

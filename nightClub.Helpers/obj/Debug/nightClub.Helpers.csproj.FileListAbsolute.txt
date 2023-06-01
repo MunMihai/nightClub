@@ -16,6 +16,3 @@ E:\Semestru4\AndreeaProject\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj
 E:\Semestru4\AndreeaProject\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CoreCompileInputs.cache
 E:\Semestru4\AndreeaProject\nightClub.Helpers\obj\Debug\nightClub.Helpers.dll
 E:\Semestru4\AndreeaProject\nightClub.Helpers\obj\Debug\nightClub.Helpers.pdb
-E:\Semestru4\Project\nightClub.Helpers\bin\Debug\AutoMapper.dll
-E:\Semestru4\Project\nightClub.Helpers\bin\Debug\AutoMapper.xml
-E:\Semestru4\Project\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CopyComplete

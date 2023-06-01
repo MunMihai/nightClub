@@ -76,6 +76,36 @@ namespace nightClub.BusinessLogic.Core
             return new UResponse { Status = true };
         }
 
+        internal void AddNewReview(ReviewModel review)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ReviewModel, RDbTable>();
+            });
+            IMapper mapper = config.CreateMapper();
+            var result = mapper.Map<RDbTable>(review);
+
+            using (var db = new ReviewContext())
+            {
+                db.Reviews.Add(result);
+                db.SaveChanges();
+            }
+        }
+        internal List<ReviewModel> GetReviewList()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<RDbTable, ReviewModel>();
+            });
+            IMapper mapper = config.CreateMapper();
+
+            using (var db = new ReviewContext())
+            {
+                var result = db.Reviews.ToList();
+                var reviewData = mapper.Map<List<ReviewModel>>(result);
+                return reviewData;
+            }
+        }
         internal HttpCookie Cookie(string loginCredential)
         {
             var validate = new EmailAddressAttribute();
@@ -141,7 +171,8 @@ namespace nightClub.BusinessLogic.Core
             }
 
             if (currentUser == null) return null;
-            IMapper mapper = MappingHelper.Configure<UDbTable, UserMinimal>();
+            var configure = new MapperConfiguration(cfg => cfg.CreateMap<UDbTable, UserMinimal>());
+            IMapper mapper = configure.CreateMapper();
             var userMinimal = mapper.Map<UserMinimal>(currentUser);
 
             return userMinimal;

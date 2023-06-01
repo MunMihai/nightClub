@@ -15,7 +15,7 @@ namespace nightClub.BusinessLogic.Implimentations
 
         public UResponse AddEmployee(StaffModel data)
         {
-            return AddStaff(data);
+            return AddNewEntity(data);
         }
 
         public StaffModel GetStaffById(int id)
@@ -23,14 +23,14 @@ namespace nightClub.BusinessLogic.Implimentations
             return GetEmployee(id);
         }
 
-        public UResponse Update(StaffModel data)
+        public UResponse UpdateEmployee(StaffModel data)
         {
-            return UpdateEmployee(data);
+            return Update(data);
         }
 
-        public void Delete(int id)
+        public void DeleteEmployee(int id)
         {
-            DeleteEmployee(id);
+            DeleteStaff(id);
         }
 
     }

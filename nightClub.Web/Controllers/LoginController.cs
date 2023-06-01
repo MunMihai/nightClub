@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using nightClub.BusinessLogic.Interfaces;
-using nightClub.Domain.Entities.Gallery;
 using nightClub.Domain.Entities.User;
-using nightClub.Helpers;
 using nightClub.Web.Models;
 using System;
 using System.Web;
@@ -33,7 +31,11 @@ namespace nightClub.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                IMapper mapper = MappingHelper.Configure<UserLogin, ULoginData>();
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<UserLogin, ULoginData>();
+                });
+                IMapper mapper = config.CreateMapper();
                 var data = mapper.Map<ULoginData>(login); // Mapam Credential si Password
 
                 data.LoginIp = Request.UserHostAddress;

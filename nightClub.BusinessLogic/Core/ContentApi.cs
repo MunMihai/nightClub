@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using nightClub.BusinessLogic.DBModel;
 using nightClub.BusinessLogic.Implimentations;
+using nightClub.Domain.Entities.Bar;
 using nightClub.Domain.Entities.Contact;
 using nightClub.Domain.Entities.Event;
 using nightClub.Domain.Entities.Gallery;
@@ -13,32 +14,17 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net.Sockets;
-using nightClub.Helpers;
 
 namespace nightClub.BusinessLogic.Core
 {
     public class ContentApi
     {
         //Get List
-        internal List<ReviewModel> GetReviewList()
-        {
-            List<RDbTable> context;
-            
-            IMapper mapper = MappingHelper.Configure<RDbTable, ReviewModel>();
-
-            using (var db = new ReviewContext())
-            {
-                context = db.Reviews.ToList();
-            }
-            var reviewModel = mapper.Map<List<ReviewModel>>(context);
-            return reviewModel;
-        }
-
         internal List<StaffModel> GetList()
         {
             List<SDbTable> context;
 
-            var mapper = MappingHelper.Configure<SDbTable, StaffModel>();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SDbTable, StaffModel>()).CreateMapper();
             using (var db = new StaffContext())
             {
                 context = db.Staff.ToList();
@@ -49,7 +35,7 @@ namespace nightClub.BusinessLogic.Core
         {
             List<PDbTable> context;
 
-            var mapper = MappingHelper.Configure<PDbTable, PhotoModel>();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PDbTable, PhotoModel>()).CreateMapper();
             using (var db = new GalleryContext())
             {
                 context = db.Photos.ToList();
@@ -60,7 +46,7 @@ namespace nightClub.BusinessLogic.Core
         {
             List<EDbTable> context;
 
-            var mapper = MappingHelper.Configure<EDbTable, EventModel>();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EDbTable, EventModel>()).CreateMapper();
             using (var db = new EventContext())
             {
                 context = db.Events.ToList();
@@ -71,7 +57,7 @@ namespace nightClub.BusinessLogic.Core
         {
             List<TDbTable> context;
 
-            var mapper =MappingHelper.Configure<TDbTable, TicketModel>();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TDbTable, TicketModel>()).CreateMapper();
             using (var db = new EventContext())
             {
                 if (!string.IsNullOrEmpty(searchCriteria))
@@ -89,28 +75,13 @@ namespace nightClub.BusinessLogic.Core
                 }
                 else
                 {
-                    context = db.Tickets.ToList();
+                     context = db.Tickets.ToList();
                 }
             }
             return mapper.Map<List<TicketModel>>(context);
         }
         //AddNewEntity
-        internal void AddNewReview(ReviewModel review)
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<ReviewModel, RDbTable>();
-            });
-            IMapper mapper = config.CreateMapper();
-            var result = mapper.Map<RDbTable>(review);
-
-            using (var db = new ReviewContext())
-            {
-                db.Reviews.Add(result);
-                db.SaveChanges();
-            }
-        }
-        internal UResponse AddStaff(StaffModel data)
+        internal UResponse AddNewEntity(StaffModel data)
         {
             SDbTable context;
 
@@ -119,7 +90,7 @@ namespace nightClub.BusinessLogic.Core
             if (context != null)
                 return new UResponse { Status = false, StatusMsg = "Employee already added!" };
 
-            IMapper mapper =MappingHelper.Configure<StaffModel, SDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<StaffModel, SDbTable>()).CreateMapper();
             context = mapper.Map<SDbTable>(data);
 
             using (var db = new StaffContext())
@@ -130,9 +101,9 @@ namespace nightClub.BusinessLogic.Core
             return new UResponse { Status = true };
         }
 
-        internal UResponse AddPhoto(PhotoModel photo)
+        internal UResponse AddEntity(PhotoModel photo)
         {
-            IMapper mapper =MappingHelper.Configure<PhotoModel, PDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PhotoModel, PDbTable>()).CreateMapper();
             PDbTable context = mapper.Map<PDbTable>(photo);
 
             context.Date = DateTime.Now;
@@ -145,7 +116,7 @@ namespace nightClub.BusinessLogic.Core
         }
         internal UResponse AddEvent(EventModel newEvent)
         {
-            IMapper mapper =MappingHelper.Configure<EventModel, EDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, EDbTable>()).CreateMapper();
             var context = mapper.Map<EDbTable>(newEvent);
             context.TicketsLeft = context.TotalTicketsNumber;
             using (var db = new EventContext())
@@ -172,7 +143,8 @@ namespace nightClub.BusinessLogic.Core
             }
             ticketModel.TotalPrice = ticketModel.Quantity * eventEF.TicketPrice;
 
-            IMapper mapper = MappingHelper.Configure<TicketModel, TDbTable>();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<TicketModel, TDbTable>());
+            IMapper mapper = config.CreateMapper();
             var ticketEF = mapper.Map<TDbTable>(ticketModel);
 
             using (var db = new EventContext())
@@ -192,7 +164,7 @@ namespace nightClub.BusinessLogic.Core
             SDbTable context;
             using (var db = new StaffContext())
                 context = db.Staff.FirstOrDefault(u => u.Id == id);
-            IMapper mapper =MappingHelper.Configure<SDbTable, StaffModel>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<SDbTable, StaffModel>()).CreateMapper();
 
             return context != null ? mapper.Map<StaffModel>(context) : null;
         }
@@ -201,7 +173,7 @@ namespace nightClub.BusinessLogic.Core
             PDbTable context;
             using (var db = new GalleryContext())
                 context = db.Photos.FirstOrDefault(u => u.Id == id);
-            IMapper mapper =MappingHelper.Configure<PDbTable, PhotoModel>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PDbTable, PhotoModel>()).CreateMapper();
 
             return context != null ? mapper.Map<PhotoModel>(context) : null;
         }
@@ -210,7 +182,7 @@ namespace nightClub.BusinessLogic.Core
             EDbTable context;
             using (var db = new EventContext())
                 context = db.Events.FirstOrDefault(u => u.Id == id);
-            IMapper mapper =MappingHelper.Configure<EDbTable, EventModel>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<EDbTable, EventModel>()).CreateMapper();
 
             return context != null ? mapper.Map<EventModel>(context) : null;
         }
@@ -219,34 +191,34 @@ namespace nightClub.BusinessLogic.Core
             TDbTable context;
             using (var db = new EventContext())
                 context = db.Tickets.FirstOrDefault(u => u.Id == id);
-            IMapper mapper =MappingHelper.Configure<TDbTable, TicketModel>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<TDbTable, TicketModel>()).CreateMapper();
 
             return context != null ? mapper.Map<TicketModel>(context) : null;
         }
-        internal List<TicketModel> GetTicketUserById(int userId, int? eventId)
+        internal List<TicketModel> GetTicketUserById(int userId , int? eventId )
         {
             List<TDbTable> context;
             using (var db = new EventContext())
             {
                 if (eventId.HasValue)
                 {
-                    context = db.Tickets.Where(t => (t.UserId == userId && t.EventId == eventId)).ToList();
+                    context= db.Tickets.Where(t=>(t.UserId==userId && t.EventId == eventId)).ToList();
                 }
                 else
                 {
                     context = db.Tickets.Where(b => b.UserId == userId).ToList();
                 }
             }
-            var mapper =MappingHelper.Configure<TDbTable, TicketModel>();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TDbTable, TicketModel>()).CreateMapper();
             return mapper.Map<List<TicketModel>>(context);
         }
         //Update
-        internal UResponse UpdateEmployee(StaffModel data)
+        internal UResponse Update(StaffModel data)
         {
             if (GetEmployee(data.Id) == null)
                 return new UResponse { Status = false, StatusMsg = "An Error occur at updating" };
 
-            IMapper mapper =MappingHelper.Configure<StaffModel, SDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<StaffModel, SDbTable>()).CreateMapper();
             var result = mapper.Map<SDbTable>(data);
 
             using (var db = new StaffContext())
@@ -261,7 +233,7 @@ namespace nightClub.BusinessLogic.Core
             if (GetPhotoById(data.Id) == null)
                 return new UResponse { Status = false, StatusMsg = "An Error occur at updating" };
 
-            IMapper mapper =MappingHelper.Configure<PhotoModel, PDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PhotoModel, PDbTable>()).CreateMapper();
             var result = mapper.Map<PDbTable>(data);
             result.Date = DateTime.Now;
 
@@ -284,7 +256,7 @@ namespace nightClub.BusinessLogic.Core
                 return new UResponse { Status = false, StatusMsg = $"This amount of tickets is allready booked. {bookedTickets} tickets!" };
             }
 
-            IMapper mapper =MappingHelper.Configure<EventModel, EDbTable>();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventModel, EDbTable>()).CreateMapper();
             var result = mapper.Map<EDbTable>(data);
 
             using (var db = new EventContext())
@@ -297,7 +269,7 @@ namespace nightClub.BusinessLogic.Core
         }
 
         //Delete
-        internal void DeleteEmployee(int id)
+        internal void DeleteStaff(int id)
         {
             using (var db = new StaffContext())
             {
@@ -352,6 +324,73 @@ namespace nightClub.BusinessLogic.Core
                 }
                 db.Tickets.Remove(booking);
                 db.SaveChanges();
+            }
+        }
+
+        //Bar
+        internal List<PhotoBar> GetBarsPhoto()
+        {
+            List<BarDbTable> context;
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<BarDbTable, PhotoBar>()).CreateMapper();
+            using (var db = new BarContext())
+            {
+                context = db.Bars.ToList();
+            }
+            return mapper.Map<List<PhotoBar>>(context);
+        }
+
+        internal UResponse AddBarEntity(PhotoBar photo)
+        {
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PhotoBar, BarDbTable>()).CreateMapper();
+            BarDbTable context = mapper.Map<BarDbTable>(photo);
+
+            context.Date = DateTime.Now;
+            using (var db = new BarContext())
+            {
+                db.Bars.Add(context);
+                db.SaveChanges();
+            }
+            return new UResponse { Status = true };
+        }
+
+        internal PhotoBar GetBarPhotoById(int id)
+        {
+            BarDbTable context;
+            using (var db = new BarContext())
+                context = db.Bars.FirstOrDefault(u => u.Id == id);
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<BarDbTable, PhotoBar>()).CreateMapper();
+
+            return context != null ? mapper.Map<PhotoBar>(context) : null;
+        }
+
+        internal UResponse UpdateBarPhoto(PhotoBar data)
+        {
+            if (GetBarPhotoById(data.Id) == null)
+                return new UResponse { Status = false, StatusMsg = "An Error occur at updating" };
+
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PhotoBar, BarDbTable>()).CreateMapper();
+            var result = mapper.Map<BarDbTable>(data);
+            result.Date = DateTime.Now;
+
+            using (var db = new BarContext())
+            {
+                db.Bars.AddOrUpdate(result);
+                db.SaveChanges();
+            }
+            return new UResponse { Status = true };
+        }
+
+        internal void DeleteBarPhoto(int id)
+        {
+            using (var db = new BarContext())
+            {
+                var photo = db.Bars.FirstOrDefault(p => p.Id == id);
+                if (photo != null)
+                {
+                    db.Bars.Remove(photo);
+                    db.SaveChanges();
+                }
             }
         }
     }

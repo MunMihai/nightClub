@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Bar\BarDbTable.cs" />
+    <Compile Include="Entities\Bar\PhotoBar.cs" />
     <Compile Include="Entities\Event\EDbTable.cs" />
     <Compile Include="Entities\Event\EventModel.cs" />
     <Compile Include="Entities\Gallery\PDbTable.cs" />

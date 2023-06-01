@@ -25,5 +25,12 @@ E:\Semestru4\AndreeaProject\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.C
 E:\Semestru4\AndreeaProject\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
 E:\Semestru4\AndreeaProject\nightClub.Domain\obj\Debug\nightClub.Domain.dll
 E:\Semestru4\AndreeaProject\nightClub.Domain\obj\Debug\nightClub.Domain.pdb
-E:\Semestru4\Project\nightClub.Domain\bin\Debug\AutoMapper.dll
-E:\Semestru4\Project\nightClub.Domain\bin\Debug\AutoMapper.xml
+G:\Project3.0\nightClub.Domain\bin\Debug\nightClub.Domain.dll
+G:\Project3.0\nightClub.Domain\bin\Debug\nightClub.Domain.pdb
+G:\Project3.0\nightClub.Domain\bin\Debug\nightClub.Helpers.dll
+G:\Project3.0\nightClub.Domain\bin\Debug\nightClub.Helpers.pdb
+G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.AssemblyReference.cache
+G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInputs.cache
+G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
+G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.dll
+G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.pdb

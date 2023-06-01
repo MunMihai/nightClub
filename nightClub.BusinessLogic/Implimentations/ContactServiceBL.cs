@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 namespace nightClub.BusinessLogic.Implimentations
 {
-    public class ContactServiceBL : ContentApi, IContactService
+    public class ContactServiceBL : UserApi, IContactService
     {
         public void AddReview(ReviewModel review)
         {
+            //SendToMail();
             AddNewReview(review);
         }
 

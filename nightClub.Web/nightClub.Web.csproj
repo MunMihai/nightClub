@@ -290,6 +290,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BarController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -306,6 +307,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -401,6 +403,11 @@
     <Content Include="Views\Admin\Bookings.cshtml" />
     <Content Include="Views\User\TicketBookings.cshtml" />
     <Content Include="Views\Table\Index.cshtml" />
+    <Content Include="Views\Bar\Create.cshtml" />
+    <Content Include="Views\Bar\Delete.cshtml" />
+    <Content Include="Views\Bar\Details.cshtml" />
+    <Content Include="Views\Bar\Edit.cshtml" />
+    <Content Include="Views\Bar\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -420,10 +427,6 @@
     <ProjectReference Include="..\nightClub.Domain\nightClub.Domain.csproj">
       <Project>{68c0ff49-343f-473c-8b2e-92671bd613a8}</Project>
       <Name>nightClub.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\nightClub.Helpers\nightClub.Helpers.csproj">
-      <Project>{6AA17C58-4F34-4058-BBC5-8927A1CA826D}</Project>
-      <Name>nightClub.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
