@@ -12,11 +12,11 @@
             <li><a class="nav-link @(ViewBag.Title == "Home" ? "active" : "")" href="@Url.Action("Index", "Home")">Home</a></li>
             <li><a class="nav-link @(ViewBag.Title == "About" ? "active" : "")" href="@Url.Action("Index", "About")">About</a></li>
             <li class="dropdown">
-                <a class="nav-link @(ViewBag.Title == "Services" ? "active" : "")">Services<i class="bi bi-chevron-down"></i></a>
+                <a class="nav-link @(ViewBag.Title == "Services" ? "active" : "" )">Services<i class="bi bi-chevron-down"></i></a>
                 <ul>
                     <li><a href=@Url.Action("Index","Event")>Events</a></li>
                     <li><a href=#@Url.Action("Index","Event")>Reservation</a></li>
-                    <li><a href=#@Url.Action("Index","Event")>Bar</a></li>
+                    <li><a href=#@Url.Action("Index","Bar")>Bar</a></li>
                 </ul>
             </li>
             <li><a class="nav-link @(ViewBag.Title == " Gallery" ? "active" : "" )" href="@Url.Action("Index","Gallery")">Gallery</a></li>

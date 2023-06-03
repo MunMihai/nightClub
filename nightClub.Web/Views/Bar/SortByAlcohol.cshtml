@@ -10,22 +10,30 @@
             <h2>Bar</h2>
         </div>
         <div class="sort-container">
-        @if (ViewBag.CurrentUser.Level == URole.Admin) 
-        {
-            <a href="@Url.Action("Create", "Bar")" class="add-product">Add a new Product</a>
-        }
+            @if (ViewBag.CurrentUser.Level == URole.Admin)
+            {
+                <a href="@Url.Action("Create", "Bar")" class="add-product">Add a new Product</a>
+            }
             <div class="menu">
-                <span class="sortare-label">Sortare:</span>
-                <ul class="sortare-menu">
-                    <li><a href="@Url.Action("SortByCategory", "Bar")">Sortare după Categorie</a></li>
-                    <li><a href="@Url.Action("SortByAlcohol", "Bar")">Sortare după %Alc</a></li>
-                    <li><a href="@Url.Action("SortByPrice", "Bar")">Sortare după preț</a></li>
-                </ul>
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li class="dropdown">
+                            <a class="nav-link @(ViewBag.Title == " Sortare" ? "active" : "" )">Sortare<i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href=@Url.Action("SortByCategory","Bar")>După Categorie</a></li>
+                                <li><a href="@Url.Action("SortByAlcohol", "Bar")">După %Alc</a></li>
+                                <li><a href="@Url.Action("SortByPrice", "Bar")">După preț</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
             </div>
         </div>
         <form action="@Url.Action("Search", "Bar")" method="get">
             <input type="text" name="searchQuery" placeholder="Introduceți informația căutată" />
             <button type="submit">Caută</button>
+            <a href="@Url.Action("Index", "Bar")" class="btn btn-primary">Pagina principală Bar</a>
         </form>
         <div class="row portfolio-container mt-3" data-aos="fade-up" data-aos-delay="200">
             @foreach (var bar in Model)
@@ -71,8 +79,8 @@
         <style>
             .portfolio-image {
                 height: 400px;
-                width: 300px; 
-                object-fit: cover; 
+                width: 300px;
+                object-fit: cover;
             }
 
             .portfolio-buttons {

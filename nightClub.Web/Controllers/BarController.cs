@@ -1,16 +1,9 @@
 ﻿using AutoMapper;
-using nightClub.BusinessLogic.Implimentations;
 using nightClub.BusinessLogic.Interfaces;
 using nightClub.Web.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using nightClub.Domain.Entities.Bar;
-using nightClub.Domain.Entities.Gallery;
-using Microsoft.Ajax.Utilities;
-using System.Globalization;
 
 namespace nightClub.Web.Controllers
 {

@@ -436,7 +436,10 @@ namespace nightClub.BusinessLogic.Core
             {
                 if (!string.IsNullOrEmpty(search))
                 {
-                    context = db.Bars.Where(e => e.Title.Contains(search)).ToList();
+                    context = db.Bars.Where(e => 
+                        e.Title.Contains(search) ||
+                        e.Category.Contains(search) ||
+                        e.Description.Contains(search)).ToList();
                 }
                 else
                 {

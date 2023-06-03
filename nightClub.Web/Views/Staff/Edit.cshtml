@@ -103,10 +103,10 @@
                         title = "Enter employee's information",
                         name = "description",
                         id = "description",
-                        @rows ="5",
+                        @rows = "5",
                         @class = "form-control"
                     })
-                    @Html.ValidationMessageFor(m => m.Description, "" , new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group mt-3">
                     <input type="submit" value="Update" class="btn btn-golden float-end" />
