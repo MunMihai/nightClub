@@ -12,6 +12,9 @@ namespace nightClub.BusinessLogic.Interfaces
     public interface IBar
     {
         List<PhotoBar> GetBars();
+        List<PhotoBar> GetBarsByCategory();
+        List<PhotoBar> GetBarsByPrice();
+        List<PhotoBar> GetBarsByAlcohol();
         PhotoBar GetBarById(int id);
         UResponse Add(PhotoBar newPhoto);
         UResponse Update(PhotoBar data);

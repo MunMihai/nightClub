@@ -16,6 +16,8 @@ namespace nightClub.Web.Models
         [Required]
         public string Category { get; set; }
         [Required]
+        public int Alcohol { get; set; }
+        [Required]
         public int Price { get; set; }
         [Required]
         public string Description { get; set; }

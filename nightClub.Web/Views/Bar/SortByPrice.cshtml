@@ -43,7 +43,6 @@
                 font-weight: bold;
                 margin-right: 10px;
             }
-        
         </style>
 
 
@@ -80,8 +79,9 @@
                     <div class="portfolio-info">
                         <h4>@bar.Title</h4>
                         <div class="price-alcohol-container">
-                            <p class="price">Preț: @bar.Price LEI</p>
-                            <p class="alcohol">Alcoolime: @bar.Alcohol</p>
+                            <p class="price">Preț: <mark>@bar.Price LEI</mark></p>
+                            <p class="Tip">Tip Bautura: @bar.Category</p>
+                            <p class="alcohol">Alcoolime: @bar.Alcohol %</p>
                         </div>
                     </div>
                 </div>

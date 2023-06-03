@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using nightClub.Domain.Entities.Bar;
 using nightClub.Domain.Entities.Gallery;
 using Microsoft.Ajax.Utilities;
+using System.Globalization;
 
 namespace nightClub.Web.Controllers
 {
@@ -23,13 +24,41 @@ namespace nightClub.Web.Controllers
             _barBL = bl.GetBarBL();
         }
 
-        // GET: Bar
+        //GET: Bar
         public ActionResult Index()
         {
+
             SessionStatus();
             IMapper mappeer = new MapperConfiguration(cfg =>
                 cfg.CreateMap<PhotoBar, Bar>()).CreateMapper();
             var bar = mappeer.Map<List<Bar>>(_barBL.GetBars());
+            return View(bar);
+        }
+        public ActionResult SortByCategory()
+        {
+
+            SessionStatus();
+            IMapper mappeer = new MapperConfiguration(cfg =>
+                cfg.CreateMap<PhotoBar, Bar>()).CreateMapper();
+            var bar = mappeer.Map<List<Bar>>(_barBL.GetBarsByCategory());
+            return View(bar);
+        }
+        public ActionResult SortByAlcohol()
+        {
+
+            SessionStatus();
+            IMapper mappeer = new MapperConfiguration(cfg =>
+                cfg.CreateMap<PhotoBar, Bar>()).CreateMapper();
+            var bar = mappeer.Map<List<Bar>>(_barBL.GetBarsByAlcohol());
+            return View(bar);
+        }
+        public ActionResult SortByPrice()
+        {
+
+            SessionStatus();
+            IMapper mappeer = new MapperConfiguration(cfg =>
+                cfg.CreateMap<PhotoBar, Bar>()).CreateMapper();
+            var bar = mappeer.Map<List<Bar>>(_barBL.GetBarsByPrice());
             return View(bar);
         }
         public ActionResult Create()
@@ -139,5 +168,8 @@ namespace nightClub.Web.Controllers
             _barBL.DeleteBar(id);
             return RedirectToAction("Index");
         }
+
+
+        
     }
 }

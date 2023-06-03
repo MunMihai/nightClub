@@ -18,6 +18,19 @@ namespace nightClub.BusinessLogic.Implimentations
             return GetBarsPhoto();
         }
 
+        public List<PhotoBar> GetBarsByCategory()
+        {
+            return GetBarsPhotoByCategory();
+        }
+
+        public List<PhotoBar> GetBarsByPrice()
+        {
+            return GetBarsPhotoByPrice();
+        }
+        public List<PhotoBar> GetBarsByAlcohol()
+        {
+            return GetBarsPhotoByAlcohol();
+        }
         public PhotoBar GetBarById(int id)
         {
             return GetBarPhotoById(id);

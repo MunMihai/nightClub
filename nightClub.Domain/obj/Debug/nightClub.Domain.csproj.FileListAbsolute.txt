@@ -34,3 +34,12 @@ G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInpu
 G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
 G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.dll
 G:\Project3.0\nightClub.Domain\obj\Debug\nightClub.Domain.pdb
+G:\Project5.0\nightClub.Domain\bin\Debug\nightClub.Domain.dll
+G:\Project5.0\nightClub.Domain\bin\Debug\nightClub.Domain.pdb
+G:\Project5.0\nightClub.Domain\bin\Debug\nightClub.Helpers.dll
+G:\Project5.0\nightClub.Domain\bin\Debug\nightClub.Helpers.pdb
+G:\Project5.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.AssemblyReference.cache
+G:\Project5.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInputs.cache
+G:\Project5.0\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
+G:\Project5.0\nightClub.Domain\obj\Debug\nightClub.Domain.dll
+G:\Project5.0\nightClub.Domain\obj\Debug\nightClub.Domain.pdb

@@ -44,6 +44,17 @@
                     @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group mt-3">
+                    @Html.TextAreaFor(m => m.Alcohol, new
+                    {
+                        placeholder = "Alcohol",
+                        title = "Enter the percentage of alcohol in the product",
+                        name = "alcohol",
+                        id = "alcohol",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Alcohol, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
                     @Html.TextAreaFor(m => m.Price, new
                     {
                         placeholder = "Price",
