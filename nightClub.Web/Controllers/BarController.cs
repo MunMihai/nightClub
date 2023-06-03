@@ -169,7 +169,19 @@ namespace nightClub.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Search(string searchQuery)
+        {
+            SessionStatus();
 
-        
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                ModelState.AddModelError("", "Vă rugăm să introduceți un termen de căutare valid.");
+                return RedirectToAction("Index");
+            }
+
+            var searchResults = _barBL.SearchProducts(searchQuery);
+
+            return View("SearchResults", searchResults);
+        }
     }
 }

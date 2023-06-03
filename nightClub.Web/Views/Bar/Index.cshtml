@@ -1,4 +1,5 @@
-﻿@using nightClub.Web.Models
+﻿@using nightClub.Domain.Enums
+@using nightClub.Web.Models
 @{
     ViewBag.Title = "Bar";
 }
@@ -8,45 +9,30 @@
         <div class="section-title">
             <h2>Bar</h2>
         </div>
-        <div class="sort-container">
-            <a href="@Url.Action("Create", "Bar")" class="add-product">Add a new Product</a>
-            <div class="menu">
+    <div class="sort-container">
+            @if (ViewBag.CurrentUser.Level == URole.Admin)
+            {
+                <a href="@Url.Action("Create", "Bar")" class="add-product">Add a new Product</a>
+            }
+            @if (ViewBag.CurrentUser.Level == URole.User || ViewBag.CurrentUser.Level == URole.Admin)
+            {
+                <div class="menu">
                 <span class="sortare-label">Sortare:</span>
                 <ul class="sortare-menu">
                     <li><a href="@Url.Action("SortByCategory", "Bar")">Sortare după Categorie</a></li>
                     <li><a href="@Url.Action("SortByAlcohol", "Bar")">Sortare după %Alc</a></li>
                     <li><a href="@Url.Action("SortByPrice", "Bar")">Sortare după preț</a></li>
                 </ul>
-            </div>
+                </div>
+            }
         </div>
-        <style>
-            .add-product {
-                margin-top: 10px;
-            }
-
-            .sortare-menu {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-
-                .sortare-menu li {
-                    display: inline-block;
-                    margin-right: 10px;
-                }
-
-                    .sortare-menu li:last-child {
-                        margin-right: 0;
-                    }
-
-            .sortare-label {
-                font-weight: bold;
-                margin-right: 10px;
-            }
-        
-        </style>
-
-
+        @if (ViewBag.CurrentUser.Level == URole.User || ViewBag.CurrentUser.Level == URole.Admin)
+        {
+            <form action="@Url.Action("Search", "Bar")" method="get">
+                <input type="text" name="searchQuery" placeholder="Introduceți informația căutată" />
+                <button type="submit">Caută</button>
+            </form>
+        }
         <div class="row portfolio-container mt-3" data-aos="fade-up" data-aos-delay="200">
             @foreach (var bar in Model)
             {
@@ -63,7 +49,7 @@
                     </div>
 
 
-                    @if (true) // modificare pentru rol
+                    @if (ViewBag.CurrentUser.Level == URole.Admin)
                     {
                         <div class="portfolio-buttons">
                             <a href="@Url.Action("Edit", "Bar", new { id = bar.Id })" class="btn btn-outline-secondary btn-sm">
@@ -89,13 +75,13 @@
         </div>
         <style>
             .portfolio-image {
-                height: 400px; /* setează înălțimea imaginii */
-                width: 300px; /* setează lățimea maximă a imaginii */
-                object-fit: cover; /* setează modul de afișare a imaginii */
+                height: 400px;
+                width: 300px; 
+                object-fit: cover;
             }
 
             .portfolio-buttons {
-                margin-top: 10px; /* adaugă un spațiu între imaginile din portofoliu și butoanele aferente */
+                margin-top: 10px;
             }
 
             .filter-form .btn {
@@ -125,10 +111,31 @@
                 padding: 8px;
                 font-size: 16px;
             }
+
+            .add-product {
+                margin-top: 10px;
+            }
+
+            .sortare-menu {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                .sortare-menu li {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+
+                    .sortare-menu li:last-child {
+                        margin-right: 0;
+                    }
+
+            .sortare-label {
+                font-weight: bold;
+                margin-right: 10px;
+            }
         </style>
-
-
     </div>
-
 </section>
 

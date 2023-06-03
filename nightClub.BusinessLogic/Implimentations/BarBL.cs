@@ -7,6 +7,7 @@ using nightClub.BusinessLogic.Core;
 using nightClub.BusinessLogic.Interfaces;
 using nightClub.Domain.Entities.Bar;
 using nightClub.Domain.Entities.Gallery;
+using nightClub.Domain.Entities.Ticket;
 using nightClub.Domain.Entities.User;
 
 namespace nightClub.BusinessLogic.Implimentations
@@ -49,6 +50,10 @@ namespace nightClub.BusinessLogic.Implimentations
         public void DeleteBar(int id)
         {
             DeleteBarPhoto(id);
+        }
+        public List<PhotoBar> SearchProducts(string search)
+        {
+            return SearchBarProducts(search);
         }
     }
 }

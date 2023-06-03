@@ -14,6 +14,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Contexts;
 
 namespace nightClub.BusinessLogic.Core
 {
@@ -425,6 +426,24 @@ namespace nightClub.BusinessLogic.Core
                     db.SaveChanges();
                 }
             }
+        }
+        internal List<PhotoBar> SearchBarProducts(string search)
+        {
+            List<BarDbTable> context;
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<BarDbTable, PhotoBar>()).CreateMapper();
+            using (var db = new BarContext())
+            {
+                if (!string.IsNullOrEmpty(search))
+                {
+                    context = db.Bars.Where(e => e.Title.Contains(search)).ToList();
+                }
+                else
+                {
+                    context = db.Bars.ToList();
+                }
+            }
+            return mapper.Map<List<PhotoBar>>(context);
         }
     }
 }
