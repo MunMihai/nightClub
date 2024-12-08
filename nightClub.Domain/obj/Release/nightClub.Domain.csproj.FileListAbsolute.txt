@@ -1,0 +1,11 @@
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\nightClub.Domain.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\nightClub.Domain.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\AutoMapper.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\nightClub.Helpers.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Release\AutoMapper.xml
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Release\nightClub.Domain.csproj.AssemblyReference.cache
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Release\nightClub.Domain.csproj.CoreCompileInputs.cache
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Release\nightClu.A97281D7.Up2Date
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Release\nightClub.Domain.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Release\nightClub.Domain.pdb

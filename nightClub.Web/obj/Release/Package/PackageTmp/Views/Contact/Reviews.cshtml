@@ -1,0 +1,32 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Reviews";
+}
+@model IEnumerable<nightClub.Web.Models.Review>
+
+
+<section id="testimonials" class="testimonials">
+    <div class="container" data-aos="zoom-in">
+        <div class="section-title">
+            <p>All Reviews</p>
+        </div>
+
+        @foreach (var review in Model)
+        {
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="testimonial-item">
+                    <h3>@review.Name</h3>
+                    <h4>@review.Email</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        @review.Message
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</section>

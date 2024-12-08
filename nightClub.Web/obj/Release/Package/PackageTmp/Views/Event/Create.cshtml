@@ -1,0 +1,115 @@
+﻿@model nightClub.Web.Models.Event
+@{
+    ViewBag.Title = "Add Event";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Add an event</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("Create", "Event", FormMethod.Post, new { @id = "EventForm " }))
+            {
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.ImageUrl, new
+                    {
+                        placeholder = "Event Image Url",
+                        title = "Select event's image",
+                        name = "image",
+                        id = "image",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.ImageUrl, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.Title, new
+                    {
+                        placeholder = "Event Name",
+                        title = "Enter the event name",
+                        name = "name",
+                        id = "name",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.TextBoxFor(m => m.StartDate, new
+                        {
+                            placeholder = "Start Date",
+                            title = "Enter Start Date",
+                            name = "date",
+                            id = "date",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.TextBoxFor(m => m.EndDate, new
+                        {
+                            placeholder = "End Date",
+                            title = "Enter End Date",
+                            name = "date",
+                            id = "date",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 form-group">
+                        @Html.TextBoxFor(m => m.TicketPrice, new
+                        {
+                            placeholder = "Ticket Price",
+                            title = "Enter the price per ticket",
+                            name = "price",
+                            id = "price",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.TicketPrice, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.TextBoxFor(m => m.TotalTicketsNumber, new
+                        {
+                            placeholder = "Tickets Number",
+                            title = "Enter the total number of tickets",
+                            name = "count",
+                            id = "count",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.TotalTicketsNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.SpecialGuest, new
+                    {
+                        placeholder = "SpecialGuest",
+                        title = "Enter special Guest",
+                        name = "name",
+                        id = "name",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.SpecialGuest, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextAreaFor(m => m.Description, new
+                    {
+                        placeholder = "Description",
+                        title = "Enter employee's information",
+                        name = "description",
+                        id = "description",
+                        @rows = "5",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Create" class="btn btn-golden float-end" />
+                    <a class="btn btn-outline-secondary" href=@Url.Action("Index")>
+                        <i class="bi bi-arrow-bar-left"> Event List</i>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>

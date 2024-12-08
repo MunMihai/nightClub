@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@using System.Web.Optimization
+@model nightClub.Web.Models.Review
+
+<section id="contact" class="contact " >
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+
+        <div>
+            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43511.761696194175!2d28.762753310122743!3d47.03071099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ce00125f907%3A0xfc2e5ee00a6d3d6a!2sUniversitatea%20Tehnic%C4%83%20a%20Moldovei!5e0!3m2!1sro!2s!4v1680630088733!5m2!1sro!2s" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>Strada Studenților 7, Chișinău 2023, Republica Moldova</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>nightClub@party.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>+373 69 000 000</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+                <h2 align="center">Leave a Review</h2>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @id = "ReviewForm" }))
+                {
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            @Html.TextBoxFor(m => m.Name, new
+                            {
+                                placeholder ="Enter Your Name",
+                                title = "Please Enter Your Full Name",
+                                name = "name",
+                                id = "name",
+                                @class = "form-control",
+                            })
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            @Html.TextBoxFor(m => m.Email, new
+                            {
+                                placeholder = "Your Email",
+                                title = "Please Enter Your Email",
+                                name = "email",
+                                id = "email",
+                                @class = "form-control",
+                            })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        @Html.TextBoxFor(m => m.Subject, new
+                        {
+                            placeholder = "Subject",
+                            title = "Please Enter the Subject",
+                            name = "subject",
+                            id = "subject",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mt-3">
+                        @Html.TextAreaFor(m => m.Message, new
+                        {
+                            placeholder = "Review",
+                            title = "Enter your review there",
+                            name = "message",
+                            id = "message",
+                            rows = "5",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                        <span class="help-block small">Min: 30 / Max:500</span>
+                    </div>
+                    <div class="text-center php-email-form">
+                        <button type="submit">Send Review</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<style>
+    .contact .info h4 {
+        color: #747347;
+    }
+</style>

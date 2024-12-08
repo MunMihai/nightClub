@@ -38,3 +38,14 @@ G:\ProjectBar\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInpu
 G:\ProjectBar\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CopyComplete
 G:\ProjectBar\nightClub.Domain\obj\Debug\nightClub.Domain.dll
 G:\ProjectBar\nightClub.Domain\obj\Debug\nightClub.Domain.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\nightClub.Domain.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\nightClub.Domain.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\AutoMapper.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\nightClub.Helpers.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Domain\bin\Debug\AutoMapper.xml
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.AssemblyReference.cache
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.csproj.CoreCompileInputs.cache
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Debug\nightClu.A97281D7.Up2Date
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.dll
+D:\Universitate\nightClub\nightClub\nightClub.Domain\obj\Debug\nightClub.Domain.pdb

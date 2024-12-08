@@ -1,0 +1,50 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>@ViewBag.Title | nightClub</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/bootstrap_icons/css")
+    @Styles.Render("~/bundles/pe_icon_helper/css")
+    @Styles.Render("~/bundles/pe_icon_7_stroke/css")
+    @Styles.Render("~/bundles/stroke_icon_style/css")
+
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("styles", required: false)}
+
+
+    <!-- Template Main CSS File -->
+    @Styles.Render("~/bundles/authentification/css")
+
+</head>
+
+<body>
+<main id="main">
+    @RenderBody()
+</main><!-- End #main -->
+<!-- Vendor JS Files -->
+    @Scripts.Render("~/bundles/purecounter_vanilla/js")
+    @Scripts.Render("~/bundles/glightbox/js")
+    @Scripts.Render("~/bundles/isotope/js")
+    @Scripts.Render("~/bundles/validate/js")
+
+
+    <!-- Template Main JS File -->
+    @Scripts.Render("~/bundles/main/js")
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>
+
+

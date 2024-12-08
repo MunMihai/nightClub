@@ -1,0 +1,126 @@
+﻿@model nightClub.Web.Models.Event
+@{
+    ViewBag.Title = "Event Details";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>@Model.Title Details</h2>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.ImageUrl, new
+                {
+                    placeholder = "Event Image Url",
+                    title = "Select event's image",
+                    name = "image",
+                    id = "image",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Title, new
+                {
+                    placeholder = "Event Name",
+                    title = "Enter the event name",
+                    name = "name",
+                    id = "name",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    @Html.TextBoxFor(m => m.StartDate, new
+                    {
+                        placeholder = "Start Date",
+                        title = "Enter Start Date",
+                        name = "date",
+                        id = "date",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    @Html.TextBoxFor(m => m.EndDate, new
+                    {
+                        placeholder = "End Date",
+                        title = "Enter End Date",
+                        name = "date",
+                        id = "date",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 form-group">
+                    @Html.TextBoxFor(m => m.TicketPrice, new
+                    {
+                        placeholder = "Ticket Price",
+                        title = "Enter the price per ticket",
+                        name = "price",
+                        id = "price",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    @Html.TextBoxFor(m => m.TotalTicketsNumber, new
+                    {
+                        placeholder = "Tickets Number",
+                        title = "Enter the total number of tickets",
+                        name = "count",
+                        id = "count",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div><div class="col-md-6 form-group mt-3">
+                    @Html.LabelFor(m => m.TicketsLeft)
+                </div>
+                <div class="col-md-6 form-group mt-3">
+                    @Html.TextBoxFor(m => m.TicketsLeft, new
+                    {
+                        placeholder = "Tickets Left",
+                        title = "Enter the left amount",
+                        name = "count",
+                        id = "count",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.SpecialGuest, new
+                {
+                    placeholder = "SpecialGuest",
+                    title = "Enter special Guest",
+                    name = "name",
+                    id = "name",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextAreaFor(m => m.Description, new
+                {
+                    placeholder = "Description",
+                    title = "Enter employee's information",
+                    name = "description",
+                    id = "description",
+                    @rows = "5",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                <a class="btn btn-outline-success float-end" href=@Url.Action("Edit", "Event", new { id = Model.Id })>
+                    <i class="bi bi-pencil-square">Edit Info</i>
+                </a>
+                <a class="btn btn-outline-secondary" href=@Url.Action("Index")>
+                    <i class="bi bi-arrow-bar-left"> Event List</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

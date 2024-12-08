@@ -1,0 +1,56 @@
+﻿@model nightClub.Web.Models.Photo
+@{
+    ViewBag.Title = "Delete";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Delete @Model.Title</h2>
+
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Url, new
+                {
+                    placeholder = "Image Url",
+                    title = "Enter image url",
+                    name = "image",
+                    id = "image",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Title, new
+                {
+                    placeholder = "Title",
+                    title = "Give a name to the Photo",
+                    name = "name",
+                    id = "name",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextAreaFor(m => m.Description, new
+                {
+                    placeholder = "Description",
+                    title = "Some details about the Photo",
+                    name = "address",
+                    id = "address",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+
+            <div class="form-group mt-3">
+                @using (Html.BeginForm("Delete", "Gallery", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.Id)
+                    <input type="submit" value="Confirm" class="btn btn-outline-danger float-end" />
+                }
+                <a class="btn btn-outline-secondary" href=@Url.Action("Index")>Back to Gallery</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+

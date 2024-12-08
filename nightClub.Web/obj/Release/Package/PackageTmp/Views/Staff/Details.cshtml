@@ -1,0 +1,111 @@
+﻿@model nightClub.Web.Models.Staff
+@{
+    ViewBag.Title = "Details";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Details for @Model.LastName @Model.FirstName</h2>
+
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.ImageUrl, new
+                {
+                    placeholder = "Profile Image Url",
+                    title = "Select employee's image",
+                    name = "image",
+                    id = "image",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6 form-group">
+                    @Html.TextBoxFor(m => m.FirstName, new
+                    {
+                        placeholder = "First Name",
+                        title = "Enter employee's first name",
+                        name = "name",
+                        id = "name",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    @Html.TextBoxFor(m => m.LastName, new
+                    {
+                        placeholder = "Last Name",
+                        title = "Enter employee's last name",
+                        name = "name",
+                        id = "name",
+                        @class = "form-control",
+                        @readonly = "readonly"
+                    })
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Address, new
+                {
+                    placeholder = "Address",
+                    title = "Enter employee's address",
+                    name = "address",
+                    id = "address",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.PhoneNumb, new
+                {
+                    placeholder = "Phone Number",
+                    title = "Enter employee's phone number",
+                    name = "phone",
+                    id = "phone",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Role, new
+                {
+                    placeholder = "Role",
+                    title = "Select employee's role: Manager, Waiter, Barman, Dancer or Dj",
+                    name = "role",
+                    id = "role",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.PayRate, new
+                {
+                    placeholder = "PayRate",
+                    title = "Enter employee's salary",
+                    name = "salary",
+                    id = "salary",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextAreaFor(m => m.Description, new
+                {
+                    placeholder = "Description",
+                    title = "Enter employee's information",
+                    name = "description",
+                    id = "description",
+                    @rows = "5",
+                    @class = "form-control",
+                    @readonly="readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                <a class="btn btn-outline-success float-end" href=@Url.Action("Edit", "Staff", new { id = Model.Id })>Edit Info</a>
+                <a class="btn btn-outline-secondary" href=@Url.Action("Index")>Staff List</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,120 @@
+﻿@model nightClub.Web.Models.Staff
+@{
+    ViewBag.Title = "Update";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Update Employee @Model.LastName @Model.FirstName</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("Edit", "Staff", FormMethod.Post, new { @id = "StaffForm " }))
+            {
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.ImageUrl, new
+                    {
+                        placeholder = "Profile Image Url",
+                        title = "Select employee's image",
+                        name = "image",
+                        id = "image",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.ImageUrl, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6 form-group">
+                        @Html.TextBoxFor(m => m.FirstName, new
+                        {
+                            placeholder = "First Name",
+                            title = "Enter employee's first name",
+                            name = "name",
+                            id = "name",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.TextBoxFor(m => m.LastName, new
+                        {
+                            placeholder = "Last Name",
+                            title = "Enter employee's last name",
+                            name = "name",
+                            id = "name",
+                            @class = "form-control"
+                        })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.Address, new
+                    {
+                        placeholder = "Address",
+                        title = "Enter employee's address",
+                        name = "address",
+                        id = "address",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.PhoneNumb, new
+                    {
+                        placeholder = "Phone Number",
+                        title = "Enter employee's phone number",
+                        name = "phone",
+                        id = "phone",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.PhoneNumb, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    @Html.LabelFor(m => m.Role, new { @class = "control-label" })
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(m => m.Role, "Manager") Male
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Role, "Waiter") Waiter
+                        </label>  <label>
+                            @Html.RadioButtonFor(m => m.Role, "Barman") Barman
+                        </label>  <label>
+                            @Html.RadioButtonFor(m => m.Role, "Dancer") Dancer
+                        </label>  <label>
+                            @Html.RadioButtonFor(m => m.Role, "Dj") DJ
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.PayRate, new
+                    {
+                        placeholder = "PayRate",
+                        title = "Enter employee's salary",
+                        name = "salary",
+                        id = "salary",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.PayRate, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    @Html.TextAreaFor(m => m.Description, new
+                    {
+                        placeholder = "Description",
+                        title = "Enter employee's information",
+                        name = "description",
+                        id = "description",
+                        @rows ="5",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Description, "" , new { @class = "text-danger" })
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Update" class="btn btn-golden float-end" />
+                    <a class="btn btn-outline-secondary" href=@Url.Action("Index")>Staff List</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

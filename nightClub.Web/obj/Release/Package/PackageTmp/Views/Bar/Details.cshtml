@@ -1,0 +1,83 @@
+﻿@model nightClub.Web.Models.Bar
+@{
+    ViewBag.Title = "Details";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Details for @Model.Title</h2>
+
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Url, new
+                {
+                    placeholder = "Image Url",
+                    title = "Enter image url",
+                    name = "image",
+                    id = "image",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Title, new
+                {
+                    placeholder = "Title",
+                    title = "Give a name to the Photo",
+                    name = "name",
+                    id = "name",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Category, new
+                {
+                    placeholder = "Category",
+                    title = "Choose the category",
+                    name = "category",
+                    id = "category",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Alcohol, new
+                {
+                    placeholder = "Alcohol",
+                    title = "Enter the percentage of alcohol in the product",
+                    name = "alcohol",
+                    id = "alcohol",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextBoxFor(m => m.Price, new
+                {
+                    placeholder = "Price",
+                    title = "Give a price to the Product",
+                    name = "price",
+                    id = "price",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                @Html.TextAreaFor(m => m.Description, new
+                {
+                    placeholder = "Description",
+                    title = "Some details about the Photo",
+                    name = "address",
+                    id = "address",
+                    @class = "form-control",
+                    @readonly = "readonly"
+                })
+            </div>
+            <div class="form-group mt-3">
+                <a class="btn btn-outline-success float-end" href=@Url.Action("Edit", "Bar", new { id = Model.Id })>Edit Info</a>
+                <a class="btn btn-outline-secondary" href=@Url.Action("Index")>Back to Bar</a>
+            </div>
+
+        </div>
+    </div>
+</section>

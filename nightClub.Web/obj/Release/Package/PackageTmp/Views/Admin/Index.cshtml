@@ -1,0 +1,68 @@
+﻿@using nightClub.Domain.Enums
+@model dynamic
+@{
+    ViewBag.Title = "UserManagement";
+}
+
+
+<section>
+    <div class="container" style="margin-top: 2em; margin-bottom: 3.7em;">
+        <h1>Users</h1>
+        <div class="float-end mb-3">
+            @using (Html.BeginForm())
+            {
+                @Html.TextBox("searchCriteria", null, new
+                {
+                    placeholder = "Search by UserName/Role",
+                    @class = "form-control",
+                    @onkeydown = "if (event.keyCode == 13) { this.form.submit(); return false; }",
+                    @autocomplete = "off"
+                })
+            }
+        </div>
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#Id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">LastLogin</th>
+                    <th scope="col">Level</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in @Model)
+                {
+                    <tr>
+                        <th scope="user">@user.Id</th>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumb</td>
+                        <td>@user.LastLogin.Date.ToString("F")</td>
+
+                        @{
+                            if (user.Level == URole.User)
+                            {
+                                <td>User</td>
+                            }
+                            else
+                            {
+                                <td>Admin</td>
+                            }
+                        }
+                        <td>
+                            @using (Html.BeginForm("Delete", "Admin", new { id = user.Id }))//Action Delete
+                            {
+                                <button type="submit" data-bs-togle="modal" data-bs-target="#IdModal" class="btn btn-danger float-end" data-toggle="tooltip" title="Delete User" id="@user.Id">
+                                    Delete
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

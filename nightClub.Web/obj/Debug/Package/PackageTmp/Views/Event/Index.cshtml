@@ -1,0 +1,70 @@
+﻿@using nightClub.Domain.Enums
+@using nightClub.Web.Models
+@model IEnumerable<Event>
+@{
+    ViewBag.Title = "Events";
+}
+
+
+<section id="event" class="event">
+    <div class="container" date-aos="fade-up">
+        <div class="section-title">
+            <h2>Event List</h2>
+        </div>
+        @if (ViewBag.CurrentUser.Level == URole.Admin)
+        {
+            <a href=@Url.Action("Create")>Add New Event</a>
+        }
+        <div class="row">
+
+            @foreach (var events in Model)
+            {
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-lg-6  " data-wow-delay="0.1s">
+                                <div class="d-flex flex-column">
+                                    <img class="img-fluid w-75 align-self-end" src="@events.ImageUrl" alt="">
+                                    <div class="w-auto bg-gradient p-3" style="margin-left: 25%; margin-top: -15%;">
+                                        <h1 class="text-decoration-underline mb-3" style="color: #ffbb2e ">@events.StartDate.ToString("D")</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6  " data-wow-delay="0.5s">
+                                <h1 class="text-uppercase mb-4">@events.Title</h1>
+                                <p class="mb-4">@events.Description</p>
+                                <div class=" g-4">
+                                    <a class="btn btn-outline-secondary" href=@Url.Action("EventDetail", "Event", new {id = events.Id})>
+                                        <i class="bi bi-eye">Details</i>
+                                    </a>
+                                    <a class="btn btn-golden" href=@Url.Action("BookTicket", "Event", new {id = events.Id})>
+                                        <i class="bi bi-text-left">BookIt : @events.TicketPrice.ToString("C")</i>
+                                    </a>
+                                </div>
+                                @if (ViewBag.CurrentUser.Level == URole.Admin)
+                                {
+
+                                    <div class="align-middle" style="margin-top: 5%;">
+                                        <a class="btn btn-outline-primary" href=@Url.Action("Edit", "Event", new {id = events.Id})>
+                                            <i class="bi bi-pencil-square">Edit</i>
+                                        </a>
+                                        <a class="btn btn-outline-info " href=@Url.Action("Details", "Event", new {id = events.Id})>
+                                            <i class="bi bi-eye">Details</i>
+                                        </a>
+                                        @using (Html.BeginForm("Delete", "Event"))
+                                        {
+                                            @Html.Hidden("id", events.Id)
+                                            <input type="submit" value="Delete" class="btn btn-outline-danger float-end" style="margin-top: -6%;" />
+                                        }
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

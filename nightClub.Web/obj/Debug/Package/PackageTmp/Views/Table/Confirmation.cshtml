@@ -1,0 +1,51 @@
+﻿@model nightClub.Web.Models.Table
+@{
+    Layout = "~/Views/Shared/_Layout_Blanck.cshtml";
+    ViewBag.Title = "Confirmation";
+
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Reservation Confirmation</h2>
+                    <hr />
+                    <p class="card-text">Thank you for your reservation. Here are the details:</p>
+                    <table class="table table-bordered table-dark">
+                        <tr>
+                            <th>Your Name:</th>
+                            <td>@Model.Username</td>
+                        </tr>
+                        <tr>
+                            <th>E-mail:</th>
+                            <td>@Model.Email</td>
+                        </tr>
+                        <tr>
+                            <th>Phone:</th>
+                            <td>@Model.Phone</td>
+                        </tr>
+                        <tr>
+                            <th># of Guests:</th>
+                            <td>@Model.GuestsNumber</td>
+                        </tr>
+                        <tr>
+                            <th>Reservation Date:</th>
+                            <td>@Model.Reservation.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                        <tr>
+                            <th>Reservation Type:</th>
+                            <td>@Model.ReservationType</td>
+                        </tr>
+                        <tr>
+                            <th>Special Requests:</th>
+                            <td>@Model.Description</td>
+                        </tr>
+                    </table>
+                    <b class="card-text">Our team will call you soon!</b>
+                    <p> Back to <a href=@Url.Action("Index","Home")>Home</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
