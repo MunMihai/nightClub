@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="nightClub-Web.config Connection String" description="nightClub Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:padti212.database.windows.net,1433; &#xD;&#xA;                         Initial Catalog=nightClub; &#xD;&#xA;                         Persist Security Info=False; &#xD;&#xA;                         User ID=pad; &#xD;&#xA;                         Password=miKhai2002!; &#xD;&#xA;                         MultipleActiveResultSets=False; &#xD;&#xA;                         Encrypt=True; &#xD;&#xA;                         TrustServerCertificate=False; &#xD;&#xA;                         Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Universitate\\nightClub\\nightClub\\nightClub\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='nightClub']/@connectionString" />
+  </parameter>
+</parameters>

@@ -28,3 +28,12 @@ G:\ProjectBar\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CoreCompileIn
 G:\ProjectBar\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CopyComplete
 G:\ProjectBar\nightClub.Helpers\obj\Debug\nightClub.Helpers.dll
 G:\ProjectBar\nightClub.Helpers\obj\Debug\nightClub.Helpers.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Debug\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Debug\nightClub.Helpers.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Debug\AutoMapper.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Debug\AutoMapper.xml
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.AssemblyReference.cache
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.csproj.CoreCompileInputs.cache
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Debug\nightClu.CA8B9AD2.Up2Date
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Debug\nightClub.Helpers.pdb

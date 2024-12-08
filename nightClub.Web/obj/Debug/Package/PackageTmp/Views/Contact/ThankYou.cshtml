@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Blanck.cshtml";
+    ViewBag.Title = "ThankYou";
+}
+
+<style>
+    h2 {
+        font-size: 5rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+    #not-found {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div id="not-found" class="container">
+    <h2>Thanks!</h2>
+    <p class="mt-5">Your review has been submitted successfully. Thank you for choosing to share your experience with us.</p>
+    <a class="btn btn-default" href="@Url.Action("Index", "Home" )">Home</a>
+    <a class="btn btn-accent" href="@Url.Action("Reviews", "Contact" )">Reviews</a>
+</div>
+

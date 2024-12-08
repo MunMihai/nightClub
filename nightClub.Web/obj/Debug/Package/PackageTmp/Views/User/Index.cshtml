@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "UserPage";
+}
+@model nightClub.Web.Models.UserData
+<section>
+    <div class="container" style="margin-top: 2em; margin-bottom: 23.85em;">
+        <div>
+            <h1>User Details</h1>
+        </div>
+        <p>Name: @Html.DisplayFor(u => u.Username) #@Html.DisplayFor(u => u.Id)</p>
+        <p>Email: @Html.DisplayFor(u => u.Email)</p>
+        <p>Status: @Html.DisplayFor(u => u.Level)</p>
+        <a class="get-started-btn scrollto" href="@Url.Action("Logout", "User")">Logout</a>
+        <a class="get-started-btn scrollto" href="@Url.Action("TicketBookings", "User", new {userId = Model.Id})">Bookings</a>
+    </div>
+</section>

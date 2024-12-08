@@ -1,0 +1,9 @@
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Release\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Release\nightClub.Helpers.pdb
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Release\AutoMapper.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\bin\Release\AutoMapper.xml
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Release\nightClub.Helpers.csproj.AssemblyReference.cache
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Release\nightClub.Helpers.csproj.CoreCompileInputs.cache
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Release\nightClu.CA8B9AD2.Up2Date
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Release\nightClub.Helpers.dll
+D:\Universitate\nightClub\nightClub\nightClub.Helpers\obj\Release\nightClub.Helpers.pdb

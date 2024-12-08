@@ -1,0 +1,136 @@
+﻿@using nightClub.Domain.Enums
+@model nightClub.Web.Models.Table
+@{
+    ViewBag.Title = "Table Reservation";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <div class="panel panel-filled">
+                <div class="panel-body">
+                    <div class="section-title">
+                        <p style="color: #ffc451">Reserve Table</p>
+                        <b>Please fill the form below accurately to enable us serve you better!.. welcome!</b>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @using (Html.BeginForm("Reservation", "Table", FormMethod.Post, new { @id = "TableReservationForm" }))
+                    {
+                        <div class="form-group  mt-3">
+                            @Html.LabelFor(m => m.Username, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.TextBoxFor(m => m.Username, new
+                                {
+                                    placeholder = "Andrew Jhonaton",
+                                    title = "FullName",
+                                    name = "name",
+                                    id = "name",
+                                    @class = "form-control"
+                                })
+                                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group  mt-3">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.TextBoxFor(m => m.Email, new
+                                {
+                                    placeholder = "ex: myname@example.com",
+                                    title = "Email",
+                                    name = "email",
+                                    id = "email",
+                                    @class = "form-control"
+                                })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.Phone, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.TextBoxFor(m => m.Phone, new
+                                {
+                                    title = "Phone number",
+                                    name = "phone",
+                                    id = "phone",
+                                    @class = "form-control"
+                                })
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.GuestsNumber, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.EditorFor(model => model.GuestsNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                <span class="help-block small">min:1 | max:12</span>
+                                @Html.ValidationMessageFor(m => m.GuestsNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.Reservation, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.TextBoxFor(m => m.Reservation, new { @class = "form-control", type = "date", @min = DateTime.Now.ToString("yyyy-MM-dd") })
+                                @Html.ValidationMessageFor(m => m.Reservation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.ReservationType, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.DropDownListFor(m => m.ReservationType,
+                                    Enum.GetValues(typeof(RType)).Cast<RType>().Select(e => new SelectListItem
+                                    {
+                                        Text = e.ToString(),
+                                        Value = e.ToString()
+                                    }), "-- Select Reservation Type --", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ReservationType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.Description, new { @class = "col-sm-4 col-form-label font-weight-bold text-lg" })
+                            <div class="col-md-7 float-end mt-2">
+                                @Html.TextAreaFor(m => m.Description, new
+                                {
+                                    title = "Phone number",
+                                    name = "description",
+                                    id = "description",
+                                    @class = "form-control"
+                                })
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="float-end">
+                            <input type="submit" value="Reserv" class="btn btn-golden" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .font-weight-bold {
+        font-weight: bold;
+    }
+
+    .text-lg {
+        font-size: 1.8rem;
+    }
+
+    .panel {
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        color: #949ba2;
+        border-radius: 10px;
+    }
+
+        .panel .panel-body {
+            padding: 50px;
+        }
+
+        .panel.panel-filled {
+            background-color: rgba(68, 70, 79, 0.5);
+        }
+</style>

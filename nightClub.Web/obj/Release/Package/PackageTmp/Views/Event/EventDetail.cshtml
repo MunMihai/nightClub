@@ -1,0 +1,48 @@
+﻿@model nightClub.Web.Models.Event
+@{
+    ViewBag.Title = @Model.Title;
+}
+
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container mt-5">
+        <div class="section-title">
+            <a href=@Url.Action("Index")>Back to Events</a>
+        </div>
+        <div class="row gy-4 ">
+
+            <div class="col-lg-5">
+                <div class="portfolio-details-slider">
+                    <div class="swiper-slide">
+                        <img src=@Model.ImageUrl alt="@Model.Title">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info mt-5">
+                    <h3>Main Info</h3>
+                    <ul>
+                        <li><strong>@Model.Title</strong></li>
+                        <li><strong>Price</strong>: @Model.TicketPrice.ToString("C")</li>
+                        <li><strong>Special Guest</strong>: @Model.SpecialGuest</li>
+                        <li><strong>Begin on</strong>: @Model.StartDate.ToString("D")</li>
+                        <li><strong>At</strong>: @Model.StartDate.ToString("HH:mm")</li>
+                        <li><strong>Number of Available Tickets</strong>: @Model.TicketsLeft</li>
+                    </ul>
+                </div>
+                <div class="portfolio-description mt-5">
+                    <h2>Details</h2>
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <a class="btn btn-golden" href=@Url.Action("BookTicket", "Event", new {id = Model.Id})>
+                    <i class="bi bi-text-left">BookIt right NOW</i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>

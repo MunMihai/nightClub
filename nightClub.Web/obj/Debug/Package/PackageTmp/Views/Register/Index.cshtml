@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Blanck.cshtml";
+    ViewBag.Title = "Register";
+}
+
+@using System.Web.Optimization
+@model nightClub.Web.Models.UserRegister
+
+<div class="container-center">
+    <div class="view-header">
+        <div class="header-icon">
+            <i class="pe pe-7s-unlock"></i>
+        </div>
+        <div class="header-title">
+            <h3>Register</h3>
+            <small>
+                Please fill in the form to register.
+            </small>
+        </div>
+    </div>
+
+    <div class="panel panel-filled">
+        <div class="panel-body">
+            @Html.ValidationSummary(false)
+            @using (Html.BeginForm("Index", "Register", FormMethod.Post, new { @id = "RegisterForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Username, new
+                    {
+                        placeholder = "Username",
+                        title = "Please enter a username",
+                        value = "",
+                        name = "username",
+                        id = "username",
+                        @class = "form-control"
+                    })
+                    <span class="help-block small">Your unique username to app</span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Email, new
+                    {
+                        placeholder = "example@gmail.com",
+                        title = "Please enter your email",
+                        value = "",
+                        name = "email",
+                        id = "email",
+                        @class = "form-control"
+                    })
+                    <span class="help-block small">A valid email address</span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.PhoneNumb, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.PhoneNumb, new
+                    {
+                        placeholder = "555-555-5555",
+                        title = "Please enter your phone number",
+                        value = "",
+                        name = "phone",
+                        id = "phone",
+                        @class = "form-control"
+                    })
+                    <span class="help-block small">Your phone number (optional)</span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.Password, new
+                    {
+                        @class = "form-control",
+                        title = "Please enter your password",
+                        placeholder = "******",
+                    })
+                    <span class="help-block small">Your strong password</span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new
+                    {
+                        @class = "form-control",
+                        title = "Please confirm your password",
+                        placeholder = "******",
+                    })
+                    <span class="help-block small">Confirm your password</span>
+                </div>
+
+                <div>
+                    <button class="btn btn-accent">Register</button>
+                    <a class="btn btn-default" href="@Url.Action("Index", "Login")">Login</a>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

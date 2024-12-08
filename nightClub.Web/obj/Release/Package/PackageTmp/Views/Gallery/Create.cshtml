@@ -1,0 +1,57 @@
+﻿@model nightClub.Web.Models.Photo
+@{
+    ViewBag.Title = "Add Photo";
+}
+<section>
+    <div class="container d-flex justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 mt-5">
+            <h2>Add a Photo</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { @id = "GalleryForm " }))
+            {
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.Url, new
+                    {
+                        placeholder = "Image Url",
+                        title = "Enter image url",
+                        name = "image",
+                        id = "image",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Url, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mt-3">
+                    @Html.TextBoxFor(m => m.Title, new
+                    {
+                        placeholder = "Title",
+                        title = "Give a name to the Photo",
+                        name = "name",
+                        id = "name",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mt-3">
+                    @Html.TextAreaFor(m => m.Description, new
+                    {
+                        placeholder = "Description",
+                        title = "Some details about the Photo",
+                        name = "address",
+                        id = "address",
+                        @class = "form-control"
+                    })
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+              
+                <div class="form-group mt-3">
+                    <input type="submit" value="Create" class="btn btn-golden float-end" />
+                    <a class="btn btn-outline-secondary" href=@Url.Action("Index")>Back to Gallery</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

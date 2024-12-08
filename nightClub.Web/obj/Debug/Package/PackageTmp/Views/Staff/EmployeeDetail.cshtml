@@ -1,0 +1,42 @@
+﻿@model nightClub.Web.Models.Staff
+@{
+    ViewBag.Title = @Model.FirstName+" "+@Model.LastName;
+}
+
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container mt-5">
+        <div class="section-title">
+            <a href=@Url.Action("Index")>Back to Staff</a>
+        </div>
+        <div class="row gy-4 ">
+
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider">
+                    <div class="swiper-slide">
+                        <img src=@Model.ImageUrl alt="@ViewBag.Title">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info mt-5">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><strong>Full Name</strong>: @ViewBag.Title</li>
+                        <li><strong>Role</strong>: @Model.Role</li>
+                        <li><strong>Phone Number</strong>: @Model.PhoneNumb</li>
+                        <li><strong>Social</strong>: <a href="#instagram">www.instagram.com</a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-description mt-5">
+                    <h2>@Model.FirstName's details</h2>
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
